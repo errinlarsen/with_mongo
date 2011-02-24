@@ -1,0 +1,9 @@
+%h1= @picker.name
+%p= @picker.text
+
+%form( action="/pickers/destroy/#{@picker.name}" method='POST' )
+  %input( type='submit' value='Delete' )
+
+%a( href='/pickers/edit' ) Edit this picker<br />
+-# %a( href='/pickers/new' ) Create new picker<br />
+%a( href='/pickers' ) List all the pickers

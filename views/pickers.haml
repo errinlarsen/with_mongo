@@ -1,0 +1,11 @@
+%h1 All Pickers
+
+%p
+  - @pickers.each do |p|
+    %b
+      %a( href="/pickers/show/#{p.name}" )
+        = p.name
+    = p.text
+    %br/
+
+%a( href='/pickers/new' ) Create new picker<br />
