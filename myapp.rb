@@ -52,11 +52,12 @@ class MyApp < Sinatra::Base
 
   private
   def get_db
-    if ENV['MONGOHQ_HOST']
+    if ENV['MONGOHQ_URL']
       puts "Running on MongoHQ" 
-      uri = URI.parse( ENV['MONGOHQ_URL'] )
-      conn = Mongo::Connection.from_uri( ENV['MONGOHQ_URI'] )
-      db = conn.db( uri.path.gsub( /^\//, '' ))
+      uri = URI.parse(ENV['MONGOHQ_URL'])
+      conn = Mongo::Connection.from_uri(ENV['MONGOHQ_URL'])
+      db = conn.db(uri.path.gsub(/^\//, ''))
+      
     else
       puts "Using local database" 
       db = Mongo::Connection.new.db( 'mydb' )
